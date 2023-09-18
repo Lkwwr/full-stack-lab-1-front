@@ -1,1 +1,27 @@
-<h4>Car component works!</h4>
+<div class="container">
+  <br>
+  <h4>
+    <mark>Car:</mark>
+    {{brand}}
+    <small>{{model}}</small></h4>
+  <div class="alert alert-success">
+    Car characteristics:
+    <ul>
+      <li>Max Speed: <strong>{{speed}}</strong></li>
+      <li>Body Color: <strong>{{colors.body}}</strong></li>
+      <li>Interior Color: <strong>{{colors.interior}}</strong></li>
+      <li>Rim Color: <strong>{{colors.rims}}</strong></li>
+    </ul>
+  </div>
+  <h5>Car Perks:</h5>
+  <div class="alert alert-warning">
+    <ul>
+      <li *ngFor="let opt of options">{{opt}}</li>
+    </ul>
+  </div>
+
+  <h5>Chose car:</h5>
+  <button class="btn btn-danger" (click)="carSelect('Toyota')">Toyota</button>
+  <button class="btn btn-success" (click)="carSelect('Audi')">Audi</button>
+  <button class="btn btn-info" (click)="carSelect('Porsche')">Porsche</button>
+</div>
