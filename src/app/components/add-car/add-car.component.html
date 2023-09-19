@@ -1,0 +1,12 @@
+<div>
+  New Car characteristics:
+  <form (submit)="onSubmit(brand.value, model.value, body.value, Number(cost.value))">
+    <ul>
+      <li><label>Brand:</label> <input #brand required/></li>
+      <li><label>Model:</label> <input #model required/></li>
+      <li><label>Body:</label> <input #body required/></li>
+      <li><label>Cost:</label> <input #cost required/></li>
+    </ul>
+    <button type="submit">SAVE</button>
+  </form>
+</div>

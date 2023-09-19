@@ -1,0 +1,20 @@
+<div>
+  Cars:
+  <table>
+    <tr>
+      <th>Model</th>
+      <th>Brand</th>
+      <th>Body Type</th>
+      <th>Cost</th>
+      <th>Details</th>
+    </tr>
+    <tr *ngFor="let car of cars">
+      <td>{{car.brand}}</td>
+      <td>{{car.model}}</td>
+      <td>{{car.body}}</td>
+      <td>{{car.cost}}</td>
+      <td><a href="/car/{{car.id}}">DETAILS</a></td>
+    </tr>
+  </table>
+  <a href="/add-car">ADD CAR</a>
+</div>

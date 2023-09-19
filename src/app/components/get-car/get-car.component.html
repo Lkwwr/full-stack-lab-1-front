@@ -1,0 +1,15 @@
+<div>
+  Car characteristics:
+  <form (submit)="onSubmit(Number(id.value), brand.value, model.value, body.value, Number(cost.value))"
+        (reset)="onReset(Number(id.value))">
+    <input type="hidden" value="{{car.id}}" #id/>
+    <ul>
+      <li><label>Brand:</label> <input value="{{car.brand}}" #brand/></li>
+      <li><label>Model:</label> <input value="{{car.model}}" #model/></li>
+      <li><label>Body:</label> <input value="{{car.body}}" #body/></li>
+      <li><label>Cost:</label> <input value="{{car.cost}}" #cost/></li>
+    </ul>
+    <button type="submit">SAVE</button>
+    <button type="reset">DELETE</button>
+  </form>
+</div>
