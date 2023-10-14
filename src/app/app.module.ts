@@ -4,24 +4,47 @@ import {RouterModule, Routes} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
 
 import {AppComponent} from './app.component';
-import {GetCarComponent} from './components/get-car/get-car.component';
+import {CarPageComponent} from './components/car-page/car-page.component';
 import {HomePageComponent} from './components/home-page/home-page.component';
-import {AddCarComponent} from './components/add-car/add-car.component';
+import {AddCarPageComponent} from './components/add-car-page/add-car-page.component';
 import {CarService} from "./services/car.service";
 import {FormsModule} from "@angular/forms";
+import {LoginPageComponent} from './components/login-page/login-page.component';
+import {AccountPageComponent} from './components/account-page/account-page.component';
+import {EmployeePageComponent} from './components/employee-page/employee-page.component';
+import {RegistrationPageComponent} from './components/registration-page/registration-page.component';
+import {AddEmployeePageComponent} from './components/add-employee-page/add-employee-page.component';
+import {AddCenterPageComponent} from './components/add-center-page/add-center-page.component';
+import {CenterPageComponent} from './components/center-page/center-page.component';
+import {HomeService} from "./services/home.service";
+import {User} from "./classes/user";
 
 const appRoutes: Routes = [
   {path: '', component: HomePageComponent},
-  {path: 'add-car', component: AddCarComponent},
-  {path: `car/:id`, component: GetCarComponent}
+  {path: 'car/add', component: AddCarPageComponent},
+  {path: 'car/:id', component: CarPageComponent},
+  {path: 'center/add', component: AddCenterPageComponent},
+  {path: 'center/:id', component: CenterPageComponent},
+  {path: 'employee/add', component: AddEmployeePageComponent},
+  {path: 'employee/:id', component: EmployeePageComponent},
+  {path: 'user/:id', component: AccountPageComponent},
+  {path: 'register', component: RegistrationPageComponent},
+  {path: 'login', component: LoginPageComponent}
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    GetCarComponent,
+    CarPageComponent,
     HomePageComponent,
-    AddCarComponent
+    AddCarPageComponent,
+    LoginPageComponent,
+    AccountPageComponent,
+    EmployeePageComponent,
+    RegistrationPageComponent,
+    AddEmployeePageComponent,
+    AddCenterPageComponent,
+    CenterPageComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +52,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [CarService],
+  providers: [CarService, HomeService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

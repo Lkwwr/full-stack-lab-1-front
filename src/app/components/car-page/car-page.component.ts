@@ -1,14 +1,15 @@
 import {Component} from '@angular/core';
 import {CarService} from "../../services/car.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {Car} from "../../classes/car";
 
 @Component({
-  selector: 'app-get-car',
-  templateUrl: './get-car.component.html',
-  styleUrls: ['./get-car.component.css']
+  selector: 'app-car-page',
+  templateUrl: './car-page.component.html',
+  styleUrls: ['./car-page.component.css']
 })
-export class GetCarComponent {
-  car: any;
+export class CarPageComponent {
+  car!: Car;
 
   constructor(private route: ActivatedRoute,
               private carService: CarService,
@@ -24,7 +25,8 @@ export class GetCarComponent {
   }
 
   onSubmit(id: number, brand: string, model: string, body: string, cost: number) {
-    this.carService.saveCar(id, brand, model, body, cost);
+    this.carService.saveCar(new Car(id, brand, model, body, cost));
+    this.router.navigate([""]);
   }
 
   onReset(id: number) {

@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
-import {CarService} from "../../services/car.service";
+import {HomeService} from "../../services/home.service";
+import {Home} from "../../classes/home";
 
 @Component({
   selector: 'app-home-page',
@@ -7,14 +8,14 @@ import {CarService} from "../../services/car.service";
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent {
-  cars: any[] = [];
+  home!: Home;
 
-  constructor(private carService: CarService) {
+  constructor(private homeService: HomeService) {
   }
 
   ngOnInit(): void {
-    this.carService.getCars().subscribe((cars) => {
-      this.cars = cars;
+    this.homeService.getHome().subscribe((home) => {
+      this.home = home;
     })
   }
 }

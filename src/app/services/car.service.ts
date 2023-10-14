@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {Car} from "../classes/car";
 
 
 @Injectable({
@@ -17,30 +18,19 @@ export class CarService {
   }
 
   getCar(id: number): Observable<Car> {
-    return this.http.get<Car>(`${this.apiUrl}/cars/${id}`);
+    return this.http.get<Car>(`${this.apiUrl}/car/${id}`);
   }
 
-  addCar(brand: string, model: string, body: string, cost: number): void {
-    const params = new HttpParams()
-      .set('brand', brand)
-      .set('model', model)
-      .set('body', body)
-      .set('cost', cost);
-    this.http.post(`${this.apiUrl}/add-car`, {}, {params}).subscribe(
+  addCar(car:Car): void {
+    this.http.post<Car>(`${this.apiUrl}/add-car`, car).subscribe(
       (response) => {
         console.log("SUCCESS", response);
       }
     );
   }
 
-  saveCar(id: number, brand: string, model: string, body: string, cost: number): void {
-    const params = new HttpParams()
-      .set('id', id.toString())
-      .set('brand', brand || '')
-      .set('model', model || '')
-      .set('body', body || '')
-      .set('cost', cost ? cost.toString() : '');
-    this.http.post(`${this.apiUrl}/save-car`, {}, {params}).subscribe(
+  saveCar(car:Car): void {
+    this.http.post<Car>(`${this.apiUrl}/save-car`, car).subscribe(
       (response) => {
         console.log("SUCCESS", response);
       }
@@ -56,11 +46,4 @@ export class CarService {
       }
     );
   }
-}
-
-interface Car {
-  id: number,
-  brand: string,
-  model: string,
-  cost: number
 }

@@ -1,3 +1,22 @@
-th{
+th {
   min-width: 100px;
+}
+
+a {
+  font-size: 15px;
+  text-decoration: none;
+}
+
+table {
+  margin-bottom: 20px;
+}
+
+.add {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+table {
+  text-align: center;
+  width: 100%;
 }

@@ -1,20 +1,21 @@
 import {Component} from '@angular/core';
 import {CarService} from "../../services/car.service";
 import {Router} from "@angular/router";
+import {Car} from "../../classes/car";
 
 @Component({
-  selector: 'app-add-car',
-  templateUrl: './add-car.component.html',
-  styleUrls: ['./add-car.component.css']
+  selector: 'app-add-car-page',
+  templateUrl: './add-car-page.component.html',
+  styleUrls: ['./add-car-page.component.css']
 })
-export class AddCarComponent {
+export class AddCarPageComponent {
   constructor(private carService: CarService,
               private router: Router) {
   }
 
   onSubmit(brand: string, model: string, body: string, cost: number
   ) {
-    this.carService.addCar(brand, model, body, cost);
+    this.carService.addCar(new Car(0, brand, model, body, cost));
     this.router.navigate([""]);
   }
 

@@ -1,20 +1,79 @@
 <div>
-  Cars:
-  <table>
-    <tr>
-      <th>Model</th>
-      <th>Brand</th>
-      <th>Body Type</th>
-      <th>Cost</th>
-      <th>Details</th>
-    </tr>
-    <tr *ngFor="let car of cars">
-      <td>{{car.brand}}</td>
-      <td>{{car.model}}</td>
-      <td>{{car.body}}</td>
-      <td>{{car.cost}}</td>
-      <td><a href="/car/{{car.id}}">DETAILS</a></td>
-    </tr>
-  </table>
-  <a href="/add-car">ADD CAR</a>
+  <div>
+    <h3>Cars:</h3>
+    <table>
+      <tr>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Body Type</th>
+        <th>Cost</th>
+        <th>Details</th>
+      </tr>
+      <tr *ngFor="let car of home.cars">
+        <td>{{car.brand}}</td>
+        <td>{{car.model}}</td>
+        <td>{{car.body}}</td>
+        <td>{{car.cost}}</td>
+        <td><a href="/car/{{car.id}}">DETAILS</a></td>
+      </tr>
+    </table>
+    <a href="/car/add" class="add">ADD CAR</a>
+    <hr>
+  </div>
+  <div>
+    <h3>Centers:</h3>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Details</th>
+      </tr>
+      <tr *ngFor="let center of home.centers">
+        <td>{{center.name}}</td>
+        <td><a href="/car/{{center.id}}">DETAILS</a></td>
+      </tr>
+    </table>
+    <a href="/center/add" class="add">ADD CENTER</a>
+    <hr>
+  </div>
+  <div>
+    <h3>Employees:</h3>
+    <table>
+      <tr>
+        <th>Last Name</th>
+        <th>First Name</th>
+        <th>Email</th>
+        <th>Salary</th>
+        <th>Center</th>
+        <th>Details</th>
+      </tr>
+      <tr *ngFor="let employee of home.employees">
+        <td>{{employee.last_name}}</td>
+        <td>{{employee.first_name}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.salary}}</td>
+        <td>{{employee.center.name}}</td>
+        <td><a href="/car/{{employee.id}}">DETAILS</a></td>
+      </tr>
+    </table>
+    <a href="/add-car" class="add">ADD CAR</a>
+    <hr>
+  </div>
+  <div>
+    <h3>Users:</h3>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Role</th>
+      </tr>
+      <tr *ngFor="let user of home.users">
+        <td>{{user.name}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.role}}</td>
+        <td><a href="/car/{{user.id}}">DETAILS</a></td>
+      </tr>
+    </table>
+    <a href="/add-car" class="add">ADD CAR</a>
+    <hr>
+  </div>
 </div>
