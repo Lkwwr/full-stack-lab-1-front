@@ -25,8 +25,12 @@ export class CarPageComponent {
   }
 
   onSubmit(id: number, brand: string, model: string, body: string, cost: number) {
-    this.carService.saveCar(new Car(id, brand, model, body, cost));
-    this.router.navigate([""]);
+    if (brand == "" || model == "" || body == "" || cost == 0) {
+      alert("All fields should be filled!");
+    } else {
+      this.carService.saveCar(new Car(id, brand, model, body, cost));
+      this.router.navigate([""]);
+    }
   }
 
   onReset(id: number) {

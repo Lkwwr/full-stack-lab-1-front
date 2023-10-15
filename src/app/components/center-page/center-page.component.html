@@ -1,11 +1,38 @@
-<div>
-  Center characteristics:
+<div class="form">
+  <h3>Center characteristics:</h3>
   <form (submit)="onSubmit(Number(id.value), name.value)"
         (reset)="onReset(Number(id.value))">
     <input type="hidden" value="{{center.id}}" #id/>
     <ul>
       <li><label>Name:</label> <input value="{{center.name}}" #name/></li>
     </ul>
+    <div>
+      <h3>Employees:</h3>
+      <table>
+        <tr>
+          <th>Last Name</th>
+          <th>First Name</th>
+          <th>Email</th>
+          <th>Salary</th>
+          <th>Center</th>
+          <th>Fire</th>
+        </tr>
+        <tr *ngFor="let employee of employees">
+          <td>{{employee.lastName}}</td>
+          <td>{{employee.firstName}}</td>
+          <td>{{employee.email}}</td>
+          <td>{{employee.salary}}</td>
+          <td>{{employee.center.name}}</td>
+          <td>
+            <form (submit)="onFire(Number(id.value))">
+              <input type="hidden" value="{{employee.id}}" #id/>
+              <button type="submit">FIRE</button>
+            </form>
+          </td>
+        </tr>
+      </table>
+      <hr>
+    </div>
     <button type="submit">SAVE</button>
     <button type="reset">DELETE</button>
   </form>

@@ -18,6 +18,9 @@ import {AddCenterPageComponent} from './components/add-center-page/add-center-pa
 import {CenterPageComponent} from './components/center-page/center-page.component';
 import {HomeService} from "./services/home.service";
 import {User} from "./classes/user";
+import { AddUserPageComponent } from './components/add-user-page/add-user-page.component';
+import {CenterService} from "./services/center.service";
+import {EmployeeService} from "./services/employee.service";
 
 const appRoutes: Routes = [
   {path: '', component: HomePageComponent},
@@ -27,6 +30,7 @@ const appRoutes: Routes = [
   {path: 'center/:id', component: CenterPageComponent},
   {path: 'employee/add', component: AddEmployeePageComponent},
   {path: 'employee/:id', component: EmployeePageComponent},
+  {path: 'user/add', component: AddUserPageComponent},
   {path: 'user/:id', component: AccountPageComponent},
   {path: 'register', component: RegistrationPageComponent},
   {path: 'login', component: LoginPageComponent}
@@ -44,7 +48,8 @@ const appRoutes: Routes = [
     RegistrationPageComponent,
     AddEmployeePageComponent,
     AddCenterPageComponent,
-    CenterPageComponent
+    CenterPageComponent,
+    AddUserPageComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +57,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [CarService, HomeService],
+  providers: [CarService, HomeService, CenterService, EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

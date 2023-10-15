@@ -13,6 +13,7 @@ import {Center} from "../../classes/center";
 export class AddEmployeePageComponent {
   centers!: Center[];
   center!: Center;
+
   constructor(private employeeService: EmployeeService,
               private centerService: CenterService,
               private router: Router) {
@@ -26,14 +27,14 @@ export class AddEmployeePageComponent {
   }
 
 
-  onSubmit(last_name: string, first_name:string, salary:number, email:string, center_id:number) {
-    if (last_name == "" || first_name == "" || salary == null || email == "" || center_id == null) alert("All fields should be filled!");
+  onSubmit(lastName: string, firstName: string, salary: number, email: string, centerId: number) {
+    if (lastName == "" || firstName == "" || salary == null || email == "" || centerId == null) alert("All fields should be filled!");
     else {
-      this.centerService.getCenter(center_id).subscribe((center) => {
+      this.centerService.getCenter(centerId).subscribe((center) => {
         this.center = center;
+        this.employeeService.addEmployee(new Employee(0, lastName, firstName, salary, email, this.center));
+        this.router.navigate([""]);
       })
-      this.employeeService.addEmployee(new Employee(0, last_name, first_name, salary, email, this.center));
-      this.router.navigate([""]);
     }
   }
 

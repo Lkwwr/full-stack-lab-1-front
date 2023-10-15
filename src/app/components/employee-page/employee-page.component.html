@@ -1,1 +1,20 @@
-<p>employee-page works!</p>
+<div>
+  <h3>Employee data:</h3>
+  <form
+    (submit)="onSubmit(Number(id.value), lastName.value, firstName.value, Number(salary.value), email.value, Number(center_id.value))"
+    (reset)="onReset(Number(id.value))">
+    <input type="hidden" value="{{employee.id}}" #id/>
+    <ul>
+      <li><label>Last Name:</label> <input value="{{employee.lastName}}" #lastName/></li>
+      <li><label>First Name:</label> <input value="{{employee.firstName}}" #firstName/></li>
+      <li><label>Salary:</label> <input value="{{employee.salary}}" #salary/></li>
+      <li><label>Email:</label> <input value="{{employee.email}}" #email type="email"/></li>
+
+      <li><label>Center:</label> <select #center_id>
+        <option *ngFor="let center of centers" value="{{center.id}}">{{center.name}}</option>
+      </select></li>
+    </ul>
+    <button type="submit">SAVE</button>
+    <button type="reset">DELETE</button>
+  </form>
+</div>

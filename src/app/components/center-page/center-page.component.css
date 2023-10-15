@@ -12,3 +12,8 @@ button {
   width: 150px;
   margin: 0 10px;
 }
+
+table {
+  text-align: center;
+  width: 100%;
+}

@@ -47,8 +47,8 @@
         <th>Details</th>
       </tr>
       <tr *ngFor="let employee of home.employees">
-        <td>{{employee.last_name}}</td>
-        <td>{{employee.first_name}}</td>
+        <td>{{employee.lastName}}</td>
+        <td>{{employee.firstName}}</td>
         <td>{{employee.email}}</td>
         <td>{{employee.salary}}</td>
         <td>{{employee.center.name}}</td>
@@ -70,10 +70,10 @@
         <td>{{user.name}}</td>
         <td>{{user.username}}</td>
         <td>{{user.role}}</td>
-        <td><a href="/car/{{user.id}}">DETAILS</a></td>
+        <td><a href="/user/{{user.id}}">DETAILS</a></td>
       </tr>
     </table>
-    <a href="/add-car" class="add">ADD CAR</a>
+    <a href="/add-user" class="add">ADD ADMIN</a>
     <hr>
   </div>
 </div>

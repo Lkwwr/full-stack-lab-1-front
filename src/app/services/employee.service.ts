@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Employee} from "../classes/employee";
@@ -20,7 +20,7 @@ export class EmployeeService {
     return this.http.get<Employee>(`${this.apiUrl}/employee/${id}`);
   }
 
-  addEmployee(employee:Employee): void {
+  addEmployee(employee: Employee): void {
     this.http.post<Employee>(`${this.apiUrl}/add-employee`, employee).subscribe(
       (response) => {
         console.log("SUCCESS", response);
@@ -28,7 +28,7 @@ export class EmployeeService {
     );
   }
 
-  saveEmployee(employee:Employee): void {
+  saveEmployee(employee: Employee): void {
     this.http.post<Employee>(`${this.apiUrl}/save-employee`, employee).subscribe(
       (response) => {
         console.log("SUCCESS", response);

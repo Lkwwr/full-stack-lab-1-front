@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Center} from "../classes/center";
+import {Employee} from "../classes/employee";
 
 @Injectable({
   providedIn: 'root'
@@ -44,5 +45,9 @@ export class CenterService {
         console.log("SUCCESS", response);
       }
     );
+  }
+
+  getEmployeesByCenter(id: number): Observable<Employee[]> {
+    return this.http.get<Employee[]>(`${this.apiUrl}/center/${id}/employees`);
   }
 }

@@ -2,6 +2,10 @@ input {
   margin:1vh 0;
 }
 
+select {
+  margin: 1vh 0;
+}
+
 label {
   min-width: 80px;
   margin-right: 20px;
