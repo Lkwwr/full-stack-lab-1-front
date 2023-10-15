@@ -1,0 +1,12 @@
+<div>
+  Center characteristics:
+  <form (submit)="onSubmit(Number(id.value), name.value)"
+        (reset)="onReset(Number(id.value))">
+    <input type="hidden" value="{{center.id}}" #id/>
+    <ul>
+      <li><label>Name:</label> <input value="{{center.name}}" #name/></li>
+    </ul>
+    <button type="submit">SAVE</button>
+    <button type="reset">DELETE</button>
+  </form>
+</div>

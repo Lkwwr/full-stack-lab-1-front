@@ -29,7 +29,7 @@
       </tr>
       <tr *ngFor="let center of home.centers">
         <td>{{center.name}}</td>
-        <td><a href="/car/{{center.id}}">DETAILS</a></td>
+        <td><a href="/center/{{center.id}}">DETAILS</a></td>
       </tr>
     </table>
     <a href="/center/add" class="add">ADD CENTER</a>
@@ -52,10 +52,10 @@
         <td>{{employee.email}}</td>
         <td>{{employee.salary}}</td>
         <td>{{employee.center.name}}</td>
-        <td><a href="/car/{{employee.id}}">DETAILS</a></td>
+        <td><a href="/employee/{{employee.id}}">DETAILS</a></td>
       </tr>
     </table>
-    <a href="/add-car" class="add">ADD CAR</a>
+    <a href="/employee/add" class="add">ADD EMPLOYEE</a>
     <hr>
   </div>
   <div>

@@ -15,8 +15,13 @@ export class AddCarPageComponent {
 
   onSubmit(brand: string, model: string, body: string, cost: number
   ) {
-    this.carService.addCar(new Car(0, brand, model, body, cost));
-    this.router.navigate([""]);
+    if (brand == "" || model == "" || body == "" || cost == 0) {
+      alert("All fields should be filled!");
+    }
+    else {
+      this.carService.addCar(new Car(0, brand, model, body, cost));
+      this.router.navigate([""]);
+    }
   }
 
   protected readonly Number = Number;

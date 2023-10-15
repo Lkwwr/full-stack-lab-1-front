@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 import {CenterService} from "../../services/center.service";
 import {Center} from "../../classes/center";
@@ -14,8 +14,11 @@ export class AddCenterPageComponent {
   }
 
   onSubmit(name: string) {
-    this.centerService.addCenter(new Center(0, name, [], []));
-    this.router.navigate([""]);
+    if (name == "") alert("Enter name of the center!");
+    else {
+      this.centerService.addCenter(new Center(0, name, []));
+      this.router.navigate([""]);
+    }
   }
 
   protected readonly Number = Number;

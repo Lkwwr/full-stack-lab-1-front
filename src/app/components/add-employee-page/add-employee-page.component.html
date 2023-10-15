@@ -1,1 +1,17 @@
-<p>add-employee-page works!</p>
+<div>
+  New Employee data:
+  <form (submit)="onSubmit(last_name.value, first_name.value, Number(salary.value), email.value, Number(center_id.value))">
+    <ul>
+      <li><label>Last Name:</label> <input #last_name required/></li>
+      <li><label>First Name:</label> <input #first_name required/></li>
+      <li><label>Salary:</label> <input #salary required/></li>
+      <li><label>Email:</label> <input #email required/></li>
+      <li><label>Center:</label>
+        <select #center_id>
+          <option *ngFor="let center of centers" value="{{center.id}}">{{center.name}}</option>
+        </select>
+      </li>
+    </ul>
+    <button type="submit">SAVE</button>
+  </form>
+</div>
