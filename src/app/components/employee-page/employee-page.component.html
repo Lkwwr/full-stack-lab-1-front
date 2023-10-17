@@ -7,8 +7,8 @@
     <ul>
       <li><label>Last Name:</label> <input value="{{employee.lastName}}" #lastName/></li>
       <li><label>First Name:</label> <input value="{{employee.firstName}}" #firstName/></li>
-      <li><label>Salary:</label> <input value="{{employee.salary}}" #salary/></li>
-      <li><label>Email:</label> <input value="{{employee.email}}" #email type="email"/></li>
+      <li><label>Salary:</label> <input type="number" value="{{employee.salary}}" #salary/></li>
+      <li><label>Email:</label> <input type="email" value="{{employee.email}}" #email/></li>
 
       <li><label>Center:</label> <select #center_id>
         <option *ngFor="let center of centers" value="{{center.id}}">{{center.name}}</option>

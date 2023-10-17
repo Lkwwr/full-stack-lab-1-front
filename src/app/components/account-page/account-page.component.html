@@ -1,1 +1,16 @@
-<p>account-page works!</p>
+<div>
+  <h3>Employee data:</h3>
+  <form
+    (submit)="onSubmit(Number(id.value), name.value, username.value, password.value, role.value)"
+    (reset)="onReset(Number(id.value))">
+    <input type="hidden" value="{{user.id}}" #id/>
+    <input type="hidden" value="{{user.role}}" #role/>
+    <ul>
+      <li><label>Name:</label> <input value="{{user.name}}" #name/></li>
+      <li><label>Username:</label> <input value="{{user.username}}" #username/></li>
+      <li><label>Password:</label> <input type="password" value="{{user.password}}" #password/></li>
+    </ul>
+    <button type="submit">SAVE</button>
+    <button type="reset">DELETE</button>
+  </form>
+</div>

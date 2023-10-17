@@ -1,1 +1,18 @@
-<p>login-page works!</p>
+<div class="login-container">
+  <form class="login-form" (submit)="onSubmit(username.value, password.value)"
+        (reset)="onReset()">
+    <h3>LOG IN</h3>
+    <div class="label-input">
+      <label><h5>Username:</h5></label>
+      <input required #username>
+    </div>
+    <div class="label-input">
+      <label><h5>Password:</h5></label>
+      <input required type="password" #password>
+    </div>
+    <div class="buttons">
+      <button type="submit">LOG IN</button>
+      <button type="reset">REGISTER</button>
+    </div>
+  </form>
+</div>

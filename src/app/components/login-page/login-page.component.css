@@ -1,0 +1,41 @@
+.login-container {
+  margin-top: 23vh;
+  display: flex;
+}
+
+.login-form {
+  margin: auto;
+  width: 40%;
+}
+
+.login-form h3 {
+  width: fit-content;
+  margin: 0 auto 50px auto;
+}
+
+.login-form label {
+  width: 30%;
+}
+
+.login-form input {
+  width: 60%;
+  margin-bottom: 25px;
+}
+
+.login-form h5 {
+  display: inline-block;
+}
+
+.buttons {
+  justify-content: space-between;
+  display: flex;
+}
+
+.login-form button {
+  width: 40%;
+}
+
+.label-input {
+  display: flex;
+  justify-content: space-between;
+}

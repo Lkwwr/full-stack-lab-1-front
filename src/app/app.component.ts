@@ -8,4 +8,9 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  logout() {
+    localStorage.removeItem("userId");
+  }
+
+  protected readonly localStorage = localStorage;
 }

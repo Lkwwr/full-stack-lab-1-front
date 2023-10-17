@@ -4,8 +4,8 @@
     <ul>
       <li><label>Last Name:</label> <input #last_name required/></li>
       <li><label>First Name:</label> <input #first_name required/></li>
-      <li><label>Salary:</label> <input #salary required/></li>
-      <li><label>Email:</label> <input #email required/></li>
+      <li><label>Salary:</label> <input type="number" #salary required/></li>
+      <li><label>Email:</label> <input type="email" #email required/></li>
       <li><label>Center:</label>
         <select #center_id>
           <option *ngFor="let center of centers" value="{{center.id}}">{{center.name}}</option>
