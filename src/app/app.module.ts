@@ -16,9 +16,7 @@ import {RegistrationPageComponent} from './components/registration-page/registra
 import {AddEmployeePageComponent} from './components/add-employee-page/add-employee-page.component';
 import {AddCenterPageComponent} from './components/add-center-page/add-center-page.component';
 import {CenterPageComponent} from './components/center-page/center-page.component';
-import {HomeService} from "./services/home.service";
-import {User} from "./classes/user";
-import { AddUserPageComponent } from './components/add-user-page/add-user-page.component';
+import {AddUserPageComponent} from './components/add-user-page/add-user-page.component';
 import {CenterService} from "./services/center.service";
 import {EmployeeService} from "./services/employee.service";
 
@@ -57,7 +55,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [CarService, HomeService, CenterService, EmployeeService],
+  providers: [CarService, CenterService, EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

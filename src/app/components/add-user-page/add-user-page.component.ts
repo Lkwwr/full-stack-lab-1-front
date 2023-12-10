@@ -16,7 +16,7 @@ export class AddUserPageComponent {
   onSubmit(name: string, username: string, password: string) {
     if (name == "" || username == "" || password == null) alert("All fields should be filled!");
     else {
-      this.userService.addUser(new User(0, name, username, password, "admin"));
+      this.userService.addUser(new User(0, name, username, password));
       this.router.navigate([""]);
     }
   }

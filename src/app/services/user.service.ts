@@ -7,7 +7,7 @@ import {User} from "../classes/user";
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'http://localhost:8081';
+  private apiUrl = 'http://localhost:8081/auth';
 
   constructor(private http: HttpClient) {
   }
@@ -37,9 +37,7 @@ export class UserService {
   }
 
   deleteUser(id: number): void {
-    const params = new HttpParams()
-      .set('id', id.toString());
-    this.http.post(`${this.apiUrl}/delete-user`, {}, {params}).subscribe(
+    this.http.delete(`${this.apiUrl}/user/${id}`).subscribe(
       (response) => {
         console.log("SUCCESS", response);
       }

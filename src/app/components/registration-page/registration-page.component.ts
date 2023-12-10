@@ -30,7 +30,7 @@ export class RegistrationPageComponent {
       }
       if (registered) alert("Username is already taken!");
       else {
-        let user = new User(0, name, username, password, "user");
+        let user = new User(0, name, username, password);
         this.userService.addUser(user);
         alert("User has been created!");
         this.router.navigate(['/login']);

@@ -24,10 +24,10 @@ export class AccountPageComponent {
     })
   }
 
-  onSubmit(id: number, name: string, username: string, password: string, role: string) {
+  onSubmit(id: number, name: string, username: string, password: string) {
     if (name == "" || username == "" || password == null) alert("All fields should be filled!");
     else {
-      this.userService.saveUser(new User(id, name, username, password, role));
+      this.userService.saveUser(new User(id, name, username, password));
       this.router.navigate([""]);
     }
   }

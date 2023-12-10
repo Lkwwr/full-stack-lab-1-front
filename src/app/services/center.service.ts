@@ -8,7 +8,7 @@ import {Employee} from "../classes/employee";
   providedIn: 'root'
 })
 export class CenterService {
-  private apiUrl = 'http://localhost:8080';
+  private apiUrl = 'http://localhost:8080/center';
 
   constructor(private http: HttpClient) {
   }
@@ -38,9 +38,7 @@ export class CenterService {
   }
 
   deleteCenter(id: number): void {
-    const params = new HttpParams()
-      .set('id', id.toString());
-    this.http.post(`${this.apiUrl}/delete-center`, {}, {params}).subscribe(
+    this.http.delete(`${this.apiUrl}/center/${id}`).subscribe(
       (response) => {
         console.log("SUCCESS", response);
       }

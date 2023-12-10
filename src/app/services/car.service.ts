@@ -8,7 +8,7 @@ import {Car} from "../classes/car";
   providedIn: 'root'
 })
 export class CarService {
-  private apiUrl = 'http://localhost:8080';
+  private apiUrl = 'http://localhost:8080/center';
 
   constructor(private http: HttpClient) {
   }
@@ -40,7 +40,7 @@ export class CarService {
   deleteCar(id: number): void {
     const params = new HttpParams()
       .set('id', id.toString());
-    this.http.post(`${this.apiUrl}/delete-car`, {}, {params}).subscribe(
+    this.http.delete(`${this.apiUrl}/car/${id}`).subscribe(
       (response) => {
         console.log("SUCCESS", response);
       }

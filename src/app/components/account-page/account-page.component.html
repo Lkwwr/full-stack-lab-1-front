@@ -1,10 +1,9 @@
 <div>
   <h3>Employee data:</h3>
   <form
-    (submit)="onSubmit(Number(id.value), name.value, username.value, password.value, role.value)"
+    (submit)="onSubmit(Number(id.value), name.value, username.value, password.value)"
     (reset)="onReset(Number(id.value))">
     <input type="hidden" value="{{user.id}}" #id/>
-    <input type="hidden" value="{{user.role}}" #role/>
     <ul>
       <li><label>Name:</label> <input value="{{user.name}}" #name/></li>
       <li><label>Username:</label> <input value="{{user.username}}" #username/></li>

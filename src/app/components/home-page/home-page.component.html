@@ -9,7 +9,7 @@
         <th>Cost</th>
         <th>Details</th>
       </tr>
-      <tr *ngFor="let car of home.cars">
+      <tr *ngFor="let car of cars">
         <td>{{car.brand}}</td>
         <td>{{car.model}}</td>
         <td>{{car.body}}</td>
@@ -27,7 +27,7 @@
         <th>Name</th>
         <th>Details</th>
       </tr>
-      <tr *ngFor="let center of home.centers">
+      <tr *ngFor="let center of centers">
         <td>{{center.name}}</td>
         <td><a href="/center/{{center.id}}">DETAILS</a></td>
       </tr>
@@ -46,7 +46,7 @@
         <th>Center</th>
         <th>Details</th>
       </tr>
-      <tr *ngFor="let employee of home.employees">
+      <tr *ngFor="let employee of employees">
         <td>{{employee.lastName}}</td>
         <td>{{employee.firstName}}</td>
         <td>{{employee.email}}</td>
@@ -66,10 +66,9 @@
         <th>Username</th>
         <th>Role</th>
       </tr>
-      <tr *ngFor="let user of home.users">
+      <tr *ngFor="let user of users">
         <td>{{user.name}}</td>
         <td>{{user.username}}</td>
-        <td>{{user.role}}</td>
         <td><a href="/user/{{user.id}}">DETAILS</a></td>
       </tr>
     </table>

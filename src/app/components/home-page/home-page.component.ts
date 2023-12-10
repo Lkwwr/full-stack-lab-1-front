@@ -1,6 +1,12 @@
 import {Component} from '@angular/core';
-import {HomeService} from "../../services/home.service";
-import {Home} from "../../classes/home";
+import {CarService} from "../../services/car.service";
+import {CenterService} from "../../services/center.service";
+import {EmployeeService} from "../../services/employee.service";
+import {UserService} from "../../services/user.service";
+import {Car} from "../../classes/car";
+import {Center} from "../../classes/center";
+import {Employee} from "../../classes/employee";
+import {User} from "../../classes/user";
 
 @Component({
   selector: 'app-home-page',
@@ -8,14 +14,27 @@ import {Home} from "../../classes/home";
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent {
-  home!: Home;
+  cars!: Car[];
+  centers!: Center[];
+  employees!: Employee[];
+  users!: User[];
 
-  constructor(private homeService: HomeService) {
+  constructor(private carService: CarService, private centerService: CenterService,
+              private employeeService: EmployeeService, private userService: UserService) {
   }
 
   ngOnInit(): void {
-    this.homeService.getHome().subscribe((home) => {
-      this.home = home;
+    this.carService.getCars().subscribe((cars) => {
+      this.cars = cars;
+    })
+    this.centerService.getCenters().subscribe(centers => {
+      this.centers = centers;
+    })
+    this.employeeService.getEmployees().subscribe(employees => {
+      this.employees = employees;
+    })
+    this.userService.getUsers().subscribe(users => {
+      this.users = users;
     })
   }
 }
