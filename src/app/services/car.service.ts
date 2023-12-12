@@ -22,7 +22,7 @@ export class CarService {
   }
 
   addCar(car:Car): void {
-    this.http.post<Car>(`${this.apiUrl}/add-car`, car).subscribe(
+    this.http.post<Car>(`${this.apiUrl}/admin/add-car`, car).subscribe(
       (response) => {
         console.log("SUCCESS", response);
       }
@@ -30,7 +30,7 @@ export class CarService {
   }
 
   saveCar(car:Car): void {
-    this.http.post<Car>(`${this.apiUrl}/save-car`, car).subscribe(
+    this.http.post<Car>(`${this.apiUrl}/admin/save-car`, car).subscribe(
       (response) => {
         console.log("SUCCESS", response);
       }
@@ -40,7 +40,7 @@ export class CarService {
   deleteCar(id: number): void {
     const params = new HttpParams()
       .set('id', id.toString());
-    this.http.delete(`${this.apiUrl}/car/${id}`).subscribe(
+    this.http.delete(`${this.apiUrl}/admin/car/${id}`).subscribe(
       (response) => {
         console.log("SUCCESS", response);
       }

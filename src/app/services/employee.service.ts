@@ -21,23 +21,19 @@ export class EmployeeService {
   }
 
   addEmployee(employee: Employee): void {
-    this.http.post<Employee>(`${this.apiUrl}/add-employee`, employee).subscribe(
+    this.http.post<Employee>(`${this.apiUrl}/admin/add-employee`, employee).subscribe(
       (response) => {
         console.log("SUCCESS", response);
       }
     );
   }
 
-  saveEmployee(employee: Employee): void {
-    this.http.post<Employee>(`${this.apiUrl}/save-employee`, employee).subscribe(
-      (response) => {
-        console.log("SUCCESS", response);
-      }
-    );
+  saveEmployee(employee: Employee): Observable<any> {
+    return this.http.post<Employee>(`${this.apiUrl}/admin/save-employee`, employee);
   }
 
   deleteEmployee(id: number): void {
-    this.http.delete(`${this.apiUrl}/employee/${id}`).subscribe(
+    this.http.delete(`${this.apiUrl}/admin/employee/${id}`).subscribe(
       (response) => {
         console.log("SUCCESS", response);
       }

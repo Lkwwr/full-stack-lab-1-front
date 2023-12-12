@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule, Routes} from "@angular/router";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 
 import {AppComponent} from './app.component';
 import {CarPageComponent} from './components/car-page/car-page.component';
@@ -16,9 +16,10 @@ import {RegistrationPageComponent} from './components/registration-page/registra
 import {AddEmployeePageComponent} from './components/add-employee-page/add-employee-page.component';
 import {AddCenterPageComponent} from './components/add-center-page/add-center-page.component';
 import {CenterPageComponent} from './components/center-page/center-page.component';
-import {AddUserPageComponent} from './components/add-user-page/add-user-page.component';
 import {CenterService} from "./services/center.service";
 import {EmployeeService} from "./services/employee.service";
+import {TokenInterceptor} from "./services/token.interceptor";
+import {LogInterceptor} from "./services/log.interceptor";
 
 const appRoutes: Routes = [
   {path: '', component: HomePageComponent},
@@ -28,7 +29,6 @@ const appRoutes: Routes = [
   {path: 'center/:id', component: CenterPageComponent},
   {path: 'employee/add', component: AddEmployeePageComponent},
   {path: 'employee/:id', component: EmployeePageComponent},
-  {path: 'user/add', component: AddUserPageComponent},
   {path: 'user/:id', component: AccountPageComponent},
   {path: 'register', component: RegistrationPageComponent},
   {path: 'login', component: LoginPageComponent}
@@ -47,7 +47,6 @@ const appRoutes: Routes = [
     AddEmployeePageComponent,
     AddCenterPageComponent,
     CenterPageComponent,
-    AddUserPageComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +54,16 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [CarService, CenterService, EmployeeService],
+  providers: [CarService, CenterService, EmployeeService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
+    {provide: HTTP_INTERCEPTORS,
+      useClass: LogInterceptor,
+      multi: true}
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

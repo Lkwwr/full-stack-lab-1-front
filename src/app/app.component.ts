@@ -9,7 +9,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class AppComponent {
   logout() {
-    localStorage.removeItem("userId");
+    localStorage.removeItem("token");
   }
 
   protected readonly localStorage = localStorage;

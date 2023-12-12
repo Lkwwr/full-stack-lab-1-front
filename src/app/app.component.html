@@ -1,11 +1,8 @@
 <header>
   <nav>
     <a href="" class="logo"><b>Lkw.dr's Garage</b></a>
-    <a href="/login" *ngIf="localStorage.getItem('userId') == null"><b>LOG IN</b></a>
-    <div class="profile-logout" *ngIf="localStorage.getItem('userId') != null">
-      <a href="/user/{{localStorage.getItem('userId')}}"><b>PROFILE</b></a>
-      <a href="/login" (click)="logout()"><b>LOG OUT</b></a>
-    </div>
+    <a href="/login" *ngIf="localStorage.getItem('token') == null"><b>LOG IN</b></a>
+    <a href="/login" (click)="logout()" *ngIf="localStorage.getItem('token') != null"><b>LOG OUT</b></a>
   </nav>
 </header>
 <hr>

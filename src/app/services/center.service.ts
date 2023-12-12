@@ -22,7 +22,7 @@ export class CenterService {
   }
 
   addCenter(center:Center): void {
-    this.http.post<Center>(`${this.apiUrl}/add-center`, center).subscribe(
+    this.http.post<Center>(`${this.apiUrl}/admin/add-center`, center).subscribe(
       (response) => {
         console.log("SUCCESS", response);
       }
@@ -30,7 +30,7 @@ export class CenterService {
   }
 
   saveCenter(center:Center): void {
-    this.http.post<Center>(`${this.apiUrl}/save-center`, center).subscribe(
+    this.http.post<Center>(`${this.apiUrl}/admin/save-center`, center).subscribe(
       (response) => {
         console.log("SUCCESS", response);
       }
@@ -38,7 +38,7 @@ export class CenterService {
   }
 
   deleteCenter(id: number): void {
-    this.http.delete(`${this.apiUrl}/center/${id}`).subscribe(
+    this.http.delete(`${this.apiUrl}/admin/center/${id}`).subscribe(
       (response) => {
         console.log("SUCCESS", response);
       }

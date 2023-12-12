@@ -32,7 +32,7 @@ export class AddEmployeePageComponent {
     else {
       this.centerService.getCenter(centerId).subscribe((center) => {
         this.center = center;
-        this.employeeService.addEmployee(new Employee(0, lastName, firstName, salary, email, this.center));
+        this.employeeService.addEmployee(new Employee(0, lastName, firstName, salary, email, this.center, this.center.id));
         this.router.navigate([""]);
       })
     }

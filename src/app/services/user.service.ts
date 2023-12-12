@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpParams} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {HttpClient} from "@angular/common/http";
+import {catchError, Observable, throwError} from "rxjs";
 import {User} from "../classes/user";
+import {AuthRequest} from "../classes/auth-request";
+import {AuthResponse} from "../classes/auth-response";
 
 @Injectable({
   providedIn: 'root'
@@ -12,32 +14,35 @@ export class UserService {
   constructor(private http: HttpClient) {
   }
 
+  auth(auth:AuthRequest): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${this.apiUrl}/auth`, auth).pipe(
+      catchError(err => {return throwError(err)}))
+  }
+
+  register(user:User): Observable<any> {
+    return this.http.post<User>(`${this.apiUrl}/register`, user).pipe(
+      catchError(err => {return throwError(err)})
+    );
+  }
+
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.apiUrl}/users`);
+    return this.http.get<User[]>(`${this.apiUrl}/admin/users`);
   }
 
   getUser(id: number): Observable<User> {
-    return this.http.get<User>(`${this.apiUrl}/user/${id}`);
-  }
-
-  addUser(user:User): void {
-    this.http.post<User>(`${this.apiUrl}/add-user`, user).subscribe(
-      (response) => {
-        console.log("SUCCESS", response);
-      }
-    );
-  }
-
-  saveUser(user:User): void {
-    this.http.post<User>(`${this.apiUrl}/save-user`, user).subscribe(
-      (response) => {
-        console.log("SUCCESS", response);
-      }
-    );
+    return this.http.get<User>(`${this.apiUrl}/admin/user/${id}`);
   }
 
   deleteUser(id: number): void {
-    this.http.delete(`${this.apiUrl}/user/${id}`).subscribe(
+    this.http.delete(`${this.apiUrl}/admin/user/${id}`).subscribe(
+      (response) => {
+        console.log("SUCCESS", response);
+      }
+    );
+  }
+
+  updateUser(user: User): void {
+    this.http.post<User>(`${this.apiUrl}/admin/update-user`, user).subscribe(
       (response) => {
         console.log("SUCCESS", response);
       }
